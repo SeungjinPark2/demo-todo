@@ -1,0 +1,11 @@
+services:
+  todo:
+    build: .
+    ports:
+     - "3000:3000"
+  mongodb:
+    image: mongo:4
+    restart: always
+      #    environment:
+      #      MONGO_INITDB_ROOT_USERNAME: root
+      #      MONGO_INITDB_ROOT_PASSWORD: example

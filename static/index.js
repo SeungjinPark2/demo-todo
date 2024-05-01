@@ -1,7 +1,7 @@
 const todoTxt = document.getElementById('todo-text');
 const btn = document.getElementById('add-btn');
 const refresh = document.getElementById('refresh-btn');
-const ulTag = document.getElementById("myList")
+const ulTag = document.getElementById('myList')
 
 addEventListener("load", async (e) => {
     const data = await fetchList();
@@ -31,7 +31,9 @@ btn.addEventListener('click', async (e) => {
     });
 
     if (result.status === 200) {
-        appendTodo(todo);
+        appendTodo({
+	    data: todo
+	});
     }
 });
 
@@ -43,7 +45,7 @@ async function fetchList() {
 
 function appendTodo(todo) {
     const node = document.createElement("li");
-    const textnode = document.createTextNode(todo);
+    const textnode = document.createTextNode(todo.data);
     node.appendChild(textnode);
     ulTag.appendChild(node);
 }
